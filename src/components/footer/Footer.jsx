@@ -1,6 +1,9 @@
 import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter } from "react-icons/bi";
 
 const Footer = () => {
+
+    const currentYear = new Date().getFullYear();
+
     return (
         <div>
             <footer className="bg-[#111827] text-white flex items-center justify-center">
@@ -23,7 +26,7 @@ const Footer = () => {
             </footer>
             <div className="footer footer-center p-4 bg-black text-white">
                 <aside>
-                    <p>Copyright © 2023 - All right reserved by Mahisur Rahman LTD</p>
+                    <p>Copyright © {currentYear} - All right reserved by Mahisur Rahman LTD</p>
                 </aside>
             </div>
         </div>

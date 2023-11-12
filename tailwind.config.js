@@ -7,12 +7,13 @@ export default {
   theme: {
     fontFamily: {
       "inter-font": "'Inter', sans-serif",
+      "cinzel-font": "'Cinzel', serif",
     },
     extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light"],
+    themes: ["dark"],
   },
 }
 
