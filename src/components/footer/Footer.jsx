@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="bg-[#111827] text-white flex items-center justify-center">
-                <div className="py-10 md:py-20 text-center px-2 md:px-32 bg-[#1F2937] flex-[1]">
+                <div className="py-10 md:py-24 text-center px-2 md:px-32 bg-[#1F2937] flex-[1]">
                     <h2 className="mb-2 md:mb-4 text-xl md:text-4xl uppercase">Contact Us</h2>
                     <p className="text-sm md:text-2xl">123 ABS Street, Uni 21, Bangladesh <br />
                         +88 123456789 <br />

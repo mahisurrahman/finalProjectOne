@@ -9,26 +9,28 @@ import slide6 from '../../assets/home/06.png'
 
 const BannerSliders = () => {
     return (
-        <Carousel>
-            <div>
-                <img src={slide1} />
-            </div>
-            <div>
-                <img src={slide2} />
-            </div>
-            <div>
-                <img src={slide3} />
-            </div>
-            <div>
-                <img src={slide4} />
-            </div>
-            <div>
-                <img src={slide5} />
-            </div>
-            <div>
-                <img src={slide6} />
-            </div>
-        </Carousel>
+        <div className='text-center'>
+            <Carousel>
+                <div>
+                    <img src={slide1} />
+                </div>
+                <div>
+                    <img src={slide2} />
+                </div>
+                <div>
+                    <img src={slide3} />
+                </div>
+                <div>
+                    <img src={slide4} />
+                </div>
+                <div>
+                    <img src={slide5} />
+                </div>
+                <div>
+                    <img src={slide6} />
+                </div>
+            </Carousel>
+        </div>
     );
 };
 
