@@ -11,7 +11,6 @@ const Home = () => {
             <OrderOnline></OrderOnline>
             <Banner></Banner>
             <MenuLayer></MenuLayer>
-            <h2>This is the Home Page</h2>
         </div>
     );
 };
