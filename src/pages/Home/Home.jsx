@@ -1,5 +1,7 @@
 import Banner from "../../components/banner/Banner";
 import BannerSliders from "../../components/bannerSlider/BannerSliders";
+import ChefRecommended from "../../components/chefRecommended/ChefRecommended";
+import ContactNumber from "../../components/contactNumber/ContactNumber";
 import MenuLayer from "../../components/menuLayer/MenuLayer";
 import OrderOnline from "../../components/orderOnline/OrderOnline";
 
@@ -11,6 +13,8 @@ const Home = () => {
             <OrderOnline></OrderOnline>
             <Banner></Banner>
             <MenuLayer></MenuLayer>
+            <ContactNumber></ContactNumber>
+            <ChefRecommended></ChefRecommended>
         </div>
     );
 };
