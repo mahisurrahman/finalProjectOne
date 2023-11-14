@@ -5,6 +5,7 @@ import ContactNumber from "../../components/contactNumber/ContactNumber";
 import FeaturedItems from "../../components/featuredItems/FeaturedItems";
 import MenuLayer from "../../components/menuLayer/MenuLayer";
 import OrderOnline from "../../components/orderOnline/OrderOnline";
+import Testimonials from "../../components/testimonial/Testimonials";
 
 
 const Home = () => {
@@ -17,6 +18,7 @@ const Home = () => {
             <ContactNumber></ContactNumber>
             <ChefRecommended></ChefRecommended>
             <FeaturedItems></FeaturedItems>
+            <Testimonials></Testimonials>
         </div>
     );
 };
