@@ -30,7 +30,7 @@ const MenuLayer = () => {
                 }
             </div>
             <div className="mt-10 md:mt-0 mb-10 md:mb-20 text-center">
-                <NavLink><button className="uppercase px-4 py-2 text-xl text-black hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer border-b-2 border-black rounded-3xl">View Full Menu</button></NavLink>
+                <NavLink><button className="uppercase px-4 py-2 text-xl text-black hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer border-b-2 border-black rounded-3xl mt-0 md:mt-10">View Full Menu</button></NavLink>
             </div>
         </div>
     );

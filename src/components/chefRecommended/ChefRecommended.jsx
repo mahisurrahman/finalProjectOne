@@ -7,6 +7,9 @@ const ChefRecommended = () => {
             <div>
                 <HeadingSubHeading heading={"CHEF RECOMMENDS"} subHeading={"Should Try"}></HeadingSubHeading>
             </div>
+            <div>
+                
+            </div>
         </div>
     );
 };
