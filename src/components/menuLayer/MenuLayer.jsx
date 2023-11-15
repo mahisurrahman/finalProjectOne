@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react";
+
 import HeadingSubHeading from "../headingSubHeading/HeadingSubHeading";
 import MenuItem from "../menuItem/menuItem";
 import { NavLink } from "react-router-dom";
+import useMenu from "../../hooks/useMenu";
 
 
 const MenuLayer = () => {
-    const [menu, setMenu]= useState([]);
-
-    useEffect(()=>{
-        fetch('menu.json')
-        .then(res=>res.json())
-        .then(data=>{
-            const popularItems = data.filter(item => item.category === 'popular');
-            setMenu(popularItems);
-        })
-        .catch(err=>{
-            console.log(err);
-        })
-    },[])
+    const [menu] = useMenu();
+    const popularItems = menu.filter(item => item.category === 'popular');
     
     return (
         <div className="mx-5 md:mx-40 my-10 md:my-20">
@@ -26,7 +16,7 @@ const MenuLayer = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 md:mt-20 mb-5 md:mb-10">
                 {
-                    menu.map(item=><MenuItem key={item._id} item={item}></MenuItem> )
+                    popularItems.map(item=><MenuItem key={item._id} item={item}></MenuItem> )
                 }
             </div>
             <div className="mt-10 md:mt-0 mb-10 md:mb-20 text-center">
