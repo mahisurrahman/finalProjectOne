@@ -38,7 +38,7 @@ const Testimonials = () => {
                                         readOnly
                                     />
                                 </div>
-                                <div className='flex justify-center pb-5 md:mb-10'>
+                                <div className='flex justify-center md:mb-5 '>
                                     <FaCanadianMapleLeaf  className='text-7xl font-extrabold' />
                                 </div>
                                 <p className='text-md md:text-xl'>{review.details}</p>

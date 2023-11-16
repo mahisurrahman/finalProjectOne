@@ -4,6 +4,7 @@ import {
 import Main from "../main/Main";
 import Home from "../../pages/Home/Home";
 import OurMenu from "../../pages/ourMenu/OurMenu";
+import OurShop from "../../pages/ourShop/OurShop";
 
   const Routes = createBrowserRouter([
     {
@@ -19,8 +20,9 @@ import OurMenu from "../../pages/ourMenu/OurMenu";
           element: <OurMenu></OurMenu>,
         },
         {
-          
-        }
+          path: "/our-shop",
+          element: <OurShop></OurShop>,
+        },
       ]
     },
   ]);
