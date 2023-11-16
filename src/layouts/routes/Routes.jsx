@@ -23,6 +23,10 @@ import OurShop from "../../pages/ourShop/OurShop";
           path: "/our-shop",
           element: <OurShop></OurShop>,
         },
+        {
+          path: "/our-shop/:category",
+          element:<OurShop></OurShop>,
+        }
       ]
     },
   ]);

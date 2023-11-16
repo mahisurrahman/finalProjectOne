@@ -7,11 +7,17 @@ import 'react-tabs/style/react-tabs.css';
 import { useState } from 'react';
 import useMenu from '../../hooks/useMenu';
 import FoodCard from './../../components/foodCard/FoodCard';
+import { useParams } from 'react-router-dom';
 
 
 const OurShop = () => {
+    const categories = ['salad', 'pizza', 'dessert', 'soup', 'drinks', 'offered'];
+    const {category} = useParams();
+    const initialIndex = categories.indexOf(category);
+    // const [tabIndex, setTabIndex] = useState(initialIndex);
     const [tabIndex, setTabIndex] = useState(0);
     const [menu] = useMenu();
+    const offered = menu.filter(item => item.category === 'offered');
     const drinks = menu.filter(item => item.category === 'drinks');
     const dessert = menu.filter(item => item.category === 'dessert');
     const pizza = menu.filter(item => item.category === 'pizza');
@@ -28,37 +34,62 @@ const OurShop = () => {
             </div>
 
             <div>
-                <Tabs className="flex flex-col items-center mt-20" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList>
+                <Tabs className="flex flex-col items-center mb-20" defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                    <TabList className="mt-20 mb-10">
                         <Tab>Salad</Tab>
                         <Tab>Pizza</Tab>
                         <Tab>Deserts</Tab>
                         <Tab>Soups</Tab>
                         <Tab>Drinks</Tab>
+                        <Tab>Offered</Tab>
                     </TabList>
 
-                    <TabPanel className="px-40 my-10">
-                    <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
-                        {
-                            salad.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard> )
-                        }
-                    </div>
+                    <TabPanel className="px-40">
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
+                            {
+                                salad.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                            }
+                        </div>
                     </TabPanel>
 
-                    <TabPanel className="px-40 my-10">
-                        <h2>Any content 2</h2>
+                    <TabPanel className="px-40 ">
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
+                            {
+                                pizza.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                            }
+                        </div>
                     </TabPanel>
 
-                    <TabPanel className="px-40 my-10">
-                        <h2>Any content 3</h2>
+                    <TabPanel className="px-40 ">
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
+                            {
+                                dessert.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                            }
+                        </div>
                     </TabPanel>
 
-                    <TabPanel className="px-40 my-10">
-                        <h2>Any content 4</h2>
+                    <TabPanel className="px-40 ">
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
+                            {
+                                soup.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                            }
+                        </div>
                     </TabPanel>
 
-                    <TabPanel className="px-40 my-10">
-                        <h2>Any content 5</h2>
+                    <TabPanel className="px-40 ">
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
+                            {
+                                drinks.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                            }
+                        </div>
+                    </TabPanel>
+
+                    <TabPanel className="px-40 ">
+                        <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
+                            {
+                                offered.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                            }
+                        </div>
                     </TabPanel>
                 </Tabs>
             </div>

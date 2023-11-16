@@ -42,7 +42,7 @@ const OurMenu = () => {
             </div>
             <div>
                 <div className='mx-5 md:mx-40 my-10 md:my-5'>
-                    <CoversTwo img={dessertBg} title={"DESSERTS"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
+                    <CoversTwo img={dessertBg} title={"desserts"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
                 </div>
                 <div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 md:mt-20 mx-5 md:mx-40 my-10 md:my-5">
@@ -57,7 +57,7 @@ const OurMenu = () => {
             </div>
             <div>
                 <div className='mx-5 md:mx-40 my-10 md:my-5'>
-                    <CoversTwo img={pizzaBg} title={"PIZZA"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
+                    <CoversTwo img={pizzaBg} title={"pizza"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
                 </div>
                 <div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 md:mt-20 mx-5 md:mx-40 my-10 md:my-5">
@@ -72,7 +72,7 @@ const OurMenu = () => {
             </div>
             <div>
                 <div className='mx-5 md:mx-40 my-10 md:my-5'>
-                    <CoversTwo img={saladBg} title={"SALAD"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
+                    <CoversTwo img={saladBg} title={"salad"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
                 </div>
                 <div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 md:mt-20 mx-5 md:mx-40 my-10 md:my-5">
@@ -87,7 +87,7 @@ const OurMenu = () => {
             </div>
             <div>
                 <div className='mx-5 md:mx-40 my-10 md:my-5'>
-                    <CoversTwo img={soupBg} title={"SOUP"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
+                    <CoversTwo img={soupBg} title={"soup"} subTitle={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}></CoversTwo>
                 </div>
                 <div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-5 md:mt-20 mx-5 md:mx-40 my-10 md:my-5">
