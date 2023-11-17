@@ -51,7 +51,7 @@ const Navbar = () => {
             Our Menu
         </NavLink>
         <img className='w-10 h-10' src={cartIcon} alt="" />
-        <button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Sign In</button>
+        <NavLink to="/login"><button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Sign In</button></NavLink>
     </>
 
     return (
