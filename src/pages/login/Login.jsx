@@ -4,44 +4,77 @@ import { NavLink } from 'react-router-dom';
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { useEffect, useRef, useState } from 'react';
+import Swal from 'sweetalert2'
 
 const Login = () => {
+    const captchaRef = useRef(null);
+    const [disabled, setDisabled] = useState(true);
+    const [inputDisabled, setInputDisabled]= useState(false);
+
+    useEffect(()=>{
+        loadCaptchaEnginge(6);
+    },[])
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
+
+    const handleValidateCaptcha = () =>{
+        const user_captcha_value = captchaRef.current.value;
+        if(validateCaptcha(user_captcha_value)){
+            setDisabled(false);
+            setInputDisabled(true);
+        }else{
+            setDisabled(true);
+            Swal.fire({
+                title: 'Captcha Invalid!',
+                text: 'Do you want to Try Again?',
+                icon: 'error',
+                confirmButtonText: 'Yes'
+              })
+        }
+    }
+    
     return (
-        <div className="loginDiv max-w-full h-screen px-20 py-10 font-inter-font">
-            <div className='loginDivTwo h-full border-2 shadow-xl shadow-gray-400 grid grid-cols-2 px-10 py-5'>
+        <div className="loginDiv h-screen px-28 py-10 max-w-full mx-auto font-inter-font">
+            <div className='loginDivTwo h-full border-2 shadow-xl shadow-gray-400 grid grid-cols-2 px-20 py-5'>
                 <div className='flex items-center'>
                     <img src={loginImage} className='w-96' alt="" />
                 </div>
-                <div>
+                <div className='px-5'>
                     <div>
                         <h2 className='text-center text-2xl font-bold'>Login</h2>
                     </div>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="mb-2">
                             <label htmlFor="email" className="block text-sm font-medium text-black dark:text-black">Your email</label>
-                            <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Type Here" required/>
+                            <input type="email" id="email" name='email' className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Type Here" required/>
                         </div>
                         <div className="mb-2">
                             <label htmlFor="password" className="block text-sm font-medium text-black dark:text-black">Your password</label>
-                            <input type="password" id="password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Enter Your Password Here' required/>
+                            <input type="password" id="password" name='password'className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Enter Your Password Here' required/>
                         </div>
-                        <div className="mb-2">
-                            <label htmlFor="captchaDisplay" className="block text-sm font-medium text-black dark:text-black">Captcha</label>
-                            <input type="text" id="captchaDisplay" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
-                            <a className='text-xs font-semibold text-blue-800 tracking-widest' href="">Reload Captcha</a>
+                        <div className="mt-4 mb-2">
+                            <LoadCanvasTemplate />
                         </div>
-                        <div className="mb-2">
-                            <label htmlFor="captchaInput" className="block text-sm font-medium text-blue dark:text-black"></label>
-                            <input type="text" id="captchaInput" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Enter The Above Captcha Here' required/>
+                        <div className="mb-2 flex gap-2">
+                            <input type="text" disabled={inputDisabled} id="captchaInput" name='captcha' ref={captchaRef} className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Enter The Above Captcha Here'/>
+                            <button onClick={handleValidateCaptcha} className='border rounded-lg border-black py-2 px-4 hover:bg-black hover:text-white hover:duration-700'>Validate</button>
                         </div>
-                        <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-[#d1a054b3] dark:hover:bg-black dark:hover:text-[#d1a054b3] dark:hover:duration-700 dark:focus:ring-blue-800">Sign In</button>
+                        {/* <input disabled={disabled} type="submit" className="w-full text-white font-medium rounded-lg text-sm px-5 py-2 text-center bg-[#d1a054b3] hover:bg-black hover:text-[#d1a054b3] hover:duration-700 dark:focus:ring-blue-800" value="Sign In" /> */}
+                        <input disabled={disabled} className='btn btn-outline w-full bg-[#d1a054b3] text-white hover:bg-black hover:duration-700' type="submit" value="Sign In" />
                     </form>
                     <div className='my-2 flex items-center justify-center gap-1'>
                         <h2 className='text-md text-[#d1a054b3]'>New Here?</h2>
                         <NavLink><button className='text-md text-[#d1a054b3] font-bold hover:text-black hover:duration-700'>Create a New Account</button></NavLink>
                     </div>
-                    <div className='mt-8'>
+                    <div className='mt-5'>
                         <h2 className='text-sm text-black text-center font-bold tracking-widest'>Or Sign In With</h2>
                         <div className='mt-2 flex justify-center gap-10'>
                             <NavLink><button className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaFacebookF></FaFacebookF></button></NavLink>
