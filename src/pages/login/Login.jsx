@@ -5,13 +5,15 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useRef, useState } from 'react';
-import Swal from 'sweetalert2'
+import { useContext, useEffect, useRef, useState } from 'react';
+import {AuthContext} from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
     const [inputDisabled, setInputDisabled]= useState(false);
+    const {signInUser, logOut} = useContext(AuthContext);
 
     useEffect(()=>{
         loadCaptchaEnginge(6);
@@ -23,6 +25,15 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        signInUser(email,password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
 
     const handleValidateCaptcha = () =>{
