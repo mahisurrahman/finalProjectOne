@@ -6,6 +6,7 @@ import Home from "../../pages/Home/Home";
 import OurMenu from "../../pages/ourMenu/OurMenu";
 import OurShop from "../../pages/ourShop/OurShop";
 import Login from "../../pages/login/Login";
+import Register from "../../pages/register/Register";
 
   const Routes = createBrowserRouter([
     {
@@ -33,7 +34,11 @@ import Login from "../../pages/login/Login";
     {
       path: '/login',
       element: <Login></Login>
-    }
+    },
+    {
+      path: "/register", 
+      element: <Register></Register>,
+    },
   ]);
 
 export default Routes;

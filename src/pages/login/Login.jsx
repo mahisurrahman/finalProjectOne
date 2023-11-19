@@ -13,7 +13,7 @@ const Login = () => {
     const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
     const [inputDisabled, setInputDisabled]= useState(false);
-    const {signInUser, logOut} = useContext(AuthContext);
+    const {signInUser} = useContext(AuthContext);
 
     useEffect(()=>{
         loadCaptchaEnginge(6);
@@ -83,7 +83,7 @@ const Login = () => {
                     </form>
                     <div className='my-2 flex items-center justify-center gap-1'>
                         <h2 className='text-md text-[#d1a054b3]'>New Here?</h2>
-                        <NavLink><button className='text-md text-[#d1a054b3] font-bold hover:text-black hover:duration-700'>Create a New Account</button></NavLink>
+                        <NavLink to="/register"><button className='text-md text-[#d1a054b3] font-bold hover:text-black hover:duration-700'>Create a New Account</button></NavLink>
                     </div>
                     <div className='mt-5'>
                         <h2 className='text-sm text-black text-center font-bold tracking-widest'>Or Sign In With</h2>
