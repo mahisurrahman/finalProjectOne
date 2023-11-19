@@ -1,8 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import cartIcon from '../../assets/icon/cartyicon.png';
 import { FaUserAlt } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
+    const {user, logOut} = useContext(AuthContext);
+
+    const logOutHandler = ()=>{
+        logOut();
+    }
 
     const links = <>
         {/* <li>Home</li>
@@ -51,7 +58,9 @@ const Navbar = () => {
             Our Menu
         </NavLink>
         <img className='w-10 h-10' src={cartIcon} alt="" />
-        <NavLink to="/login"><button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Sign In</button></NavLink>
+        {
+            user ? <NavLink to="/"><button onClick={logOutHandler} className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Log Out</button></NavLink>:<NavLink to="/login"><button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Login</button></NavLink>
+        }
     </>
 
     return (
