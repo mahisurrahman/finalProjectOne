@@ -5,18 +5,13 @@ import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
-    const {user, logOut} = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    const logOutHandler = ()=>{
+    const logOutHandler = () => {
         logOut();
     }
 
     const links = <>
-        {/* <li>Home</li>
-        <li>Contact Us</li>
-        <li>Dashboard</li>
-        <li>Our Menu</li>
-        <li>Our Shop</li> */}
         <NavLink
             to="/"
             className={({ isActive, isPending }) =>
@@ -57,9 +52,19 @@ const Navbar = () => {
         >
             Our Menu
         </NavLink>
-        <img className='w-10 h-10' src={cartIcon} alt="" />
+
         {
-            user ? <NavLink to="/"><button onClick={logOutHandler} className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Log Out</button></NavLink>:<NavLink to="/login"><button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Login</button></NavLink>
+            user ? <div className='flex items-center gap-2'>
+                <img src={cartIcon} className='w-12 h-10' alt="" />
+                <NavLink to="/"><button onClick={logOutHandler} className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'>Log Out</button></NavLink> 
+                <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
+                </div>
+                
+                :
+                <div>
+                    <img src={cartIcon} className='w-12 h-10' alt="" />
+                    <NavLink to="/login"><button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Login</button></NavLink>
+                </div>
         }
     </>
 

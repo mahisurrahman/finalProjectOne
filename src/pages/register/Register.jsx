@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import registerImage from '../../assets/others/authentication2.png';
 import './register.css';
 import { FaFacebookF } from "react-icons/fa";
@@ -11,20 +11,42 @@ import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2'
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUser, googleSignIn, facebookSignIn, gitHubSignIn, updateUserProfle } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
-        createUser (data.email, data.password)
-        .then(result=>{
-            const createdUser = result.user;
-            Swal.fire(`Successfully Signed Up as ${createdUser.email}`);
-            navigate('/');
-        })
-        .catch(error=>{
-            console.log(error);
-        })
+        createUser(data.email, data.password)
+            .then(result => {
+                updateUserProfle(data.name, data.photoUrl)
+                .then(()=>{
+                    reset();
+                    Swal.fire(`Successfully Signed Up as ${data.email}`);
+                    navigate(from, { replace: true });
+                })
+                .catch(error =>{
+                    console.log(error);
+                });
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn();
+    }
+
+    const handleFacebookSignIn = () => {
+        facebookSignIn();
+    }
+    
+    const handleGitHubSignIn = ()=>{
+        gitHubSignIn();
     }
 
     return (
@@ -40,6 +62,13 @@ const Register = () => {
                                 <h2 className='text-center font-bold text-xl'>Register</h2>
                             </div>
                             <form onSubmit={handleSubmit(onSubmit)} action="" className='pt-5'>
+                                <div className='flex flex-col'>
+                                    <label htmlFor="name">Photo</label>
+                                    <input className='w-10/12 py-2 text-md placeholder:text-sm px-2 rounded-lg' type="text" {...register("photoUrl", { required: true })}  id="" placeholder="Photo URL"
+                                    />
+                                    {errors.photoUrl && <span className='text-xs text-red-400'>Photo URL Required</span>}
+                                    <br />
+                                </div>
                                 <div className='flex flex-col'>
                                     <label htmlFor="name">Name</label>
                                     <input className='w-10/12 py-2 text-md placeholder:text-sm px-2 rounded-lg' type="text" {...register("name", { required: true })} name="name" id="" placeholder="Type Here"
@@ -79,9 +108,9 @@ const Register = () => {
                                 <div className='mt-5'>
                                     <h2 className='text-sm text-black text-center font-bold tracking-widest'>Or Sign In With</h2>
                                     <div className='mt-5 flex justify-center gap-10'>
-                                        <NavLink><button className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaFacebookF></FaFacebookF></button></NavLink>
-                                        <NavLink><button className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaGoogle></FaGoogle></button></NavLink>
-                                        <NavLink><button className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaGithub></FaGithub></button></NavLink>
+                                        <NavLink><button onClick={handleFacebookSignIn} className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaFacebookF></FaFacebookF></button></NavLink>
+                                        <NavLink><button onClick={handleGoogleSignIn} className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaGoogle></FaGoogle></button></NavLink>
+                                        <NavLink><button onClick={handleGitHubSignIn} className='border rounded-full border-gray-700 px-2 py-2 hover:bg-black hover:text-white hover:duration-700 hover:cursor-pointer'><FaGithub></FaGithub></button></NavLink>
                                     </div>
                                 </div>
                             </div>
