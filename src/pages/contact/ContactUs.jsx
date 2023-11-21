@@ -1,9 +1,9 @@
-
+import './contact.css';
 
 const ContactUs = () => {
     return (
-        <div>
-            <h2>This is the Contact Us Page</h2>
+        <div className="contactDiv h-screen absoulte flex justify-center items-center">
+            <h2 className="text-white text-5xl font-bold font-raleway-font tracking-widest contactText">Page is Under Working Procedure Sir !!!!</h2>
         </div>
     );
 };

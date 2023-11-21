@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
-import cartIcon from '../../assets/icon/cartyicon.png';
 import { FaUserAlt } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { IoCart } from "react-icons/io5";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,7 +21,7 @@ const Navbar = () => {
             Home
         </NavLink>
         <NavLink
-            to="/contact-us"
+            to="/contact"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
             }
@@ -52,17 +52,23 @@ const Navbar = () => {
         >
             Our Menu
         </NavLink>
+        <NavLink
+            to="/cart"
+        >
+            <button className="flex items-center text-2xl rounded-2xl hover:text-3xl hover:duration-700 py-2">
+                <IoCart></IoCart>
+                <div className="badge bg-transparent text-white border-none px-0">+0</div>
+            </button>
+        </NavLink>
 
         {
             user ? <div className='flex items-center gap-2'>
-                <img src={cartIcon} className='w-12 h-10' alt="" />
-                <NavLink to="/"><button onClick={logOutHandler} className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'>Log Out</button></NavLink> 
+                <NavLink to="/"><button onClick={logOutHandler} className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'>Log Out</button></NavLink>
                 <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" />
-                </div>
-                
+            </div>
+
                 :
-                <div>
-                    <img src={cartIcon} className='w-12 h-10' alt="" />
+                <div className='flex items-center gap-2'>
                     <NavLink to="/login"><button className='hover:text-yellow-500 hover:cursor-pointer text-md flex gap-2 items-center'><FaUserAlt></FaUserAlt>Login</button></NavLink>
                 </div>
         }

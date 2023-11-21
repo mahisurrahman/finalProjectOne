@@ -47,7 +47,7 @@ const OurShop = () => {
                     <TabPanel className="px-40">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
                             {
-                                salad.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                                salad.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                             }
                         </div>
                     </TabPanel>
@@ -55,7 +55,7 @@ const OurShop = () => {
                     <TabPanel className="px-40 ">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
                             {
-                                pizza.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                                pizza.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                             }
                         </div>
                     </TabPanel>
@@ -63,7 +63,7 @@ const OurShop = () => {
                     <TabPanel className="px-40 ">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
                             {
-                                dessert.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                                dessert.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                             }
                         </div>
                     </TabPanel>
@@ -71,7 +71,7 @@ const OurShop = () => {
                     <TabPanel className="px-40 ">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
                             {
-                                soup.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                                soup.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                             }
                         </div>
                     </TabPanel>
@@ -79,7 +79,7 @@ const OurShop = () => {
                     <TabPanel className="px-40 ">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
                             {
-                                drinks.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                                drinks.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                             }
                         </div>
                     </TabPanel>
@@ -87,7 +87,7 @@ const OurShop = () => {
                     <TabPanel className="px-40 ">
                         <div className='grid grid-cols-1 md:grid-cols-3 gap-5 justify-center'>
                             {
-                                offered.map(item => <FoodCard key={item._id} img={item.image} title={item.name} des={item.recipe}></FoodCard>)
+                                offered.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                             }
                         </div>
                     </TabPanel>

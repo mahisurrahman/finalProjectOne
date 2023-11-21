@@ -1,0 +1,6 @@
+.contactDiv {
+    background-image: url('../../assets/undercons.jpg');
+    background-position: center;
+    background-size: cover;
+    filter: brightness(40%);
+}
