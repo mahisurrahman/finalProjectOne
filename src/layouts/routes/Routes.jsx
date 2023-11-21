@@ -8,9 +8,9 @@ import OurShop from "../../pages/ourShop/OurShop";
 import Login from "../../pages/login/Login";
 import Register from "../../pages/register/Register";
 import PrivateRoutes from './privateRoutes/PrivateRoutes';
-import Dashboard from './../../pages/dashboard/Dashboard';
 import ContactUs from "../../pages/contact/ContactUs";
 import Cart from "../../pages/cart/Cart";
+import Dashboard from './../dashboardLayout/Dashboard';
 
   const Routes = createBrowserRouter([
     {
@@ -34,10 +34,6 @@ import Cart from "../../pages/cart/Cart";
           element:<OurShop></OurShop>,
         },
         {
-          path: "/dashboard",
-          element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>
-        },
-        {
           path: "/contact",
           element: <ContactUs></ContactUs>,
         },
@@ -55,6 +51,15 @@ import Cart from "../../pages/cart/Cart";
       path: "/register", 
       element: <Register></Register>,
     },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+
+        },
+      ]
+    }
   ]);
 
 export default Routes;
