@@ -1,35 +1,47 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from 'sweetalert2';
-import axios from "axios";
+// import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
-    const {name, recipe, image, price} = item;
+    const { name, recipe, image, price } = item;
     const navigate = useNavigate();
     const location = useLocation();
     const { user } = useAuth();
-
+    const axiosSecure = useAxiosSecure();
+    const [, refetch] = useCart();
 
     const handleAddToCart = food => {
-        if(user && user.email){
+        if (user && user.email) {
             const cartItem = {
                 menuId: food._id,
                 email: user.email,
                 name,
-                image, 
+                image,
                 price,
                 recipe,
             }
-            axios.post('http://localhost:5000/carts', cartItem)
-            .then(result=>{
-                console.log(result.data);
-                if(result.data.insertedId){
-                    Swal.fire("Successfully Added to Cart");
-                }
-            })
-        }else{
+            // axios.post('http://localhost:5000/carts', cartItem)
+            // .then(result=>{
+            //     console.log(result.data);
+            //     if(result.data.insertedId){
+            //         Swal.fire("Successfully Added to Cart");
+            //     }
+            // }) //This also works//
+
+            axiosSecure.post('/carts', cartItem)
+                .then(result => {
+                    console.log(result.data);
+                    if (result.data.insertedId) {
+                        Swal.fire("Successfully Added to Cart");
+                        refetch();
+                    }
+                })
+        } else {
             Swal.fire("Please Sign In First!");
-            navigate('/login', {state: {from:location}});
+            navigate('/login', { state: { from: location } });
         }
     }
 

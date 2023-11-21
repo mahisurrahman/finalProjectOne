@@ -3,9 +3,11 @@ import { FaUserAlt } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { IoCart } from "react-icons/io5";
+import useCart from '../../hooks/useCart';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [cart] = useCart();
 
     const logOutHandler = () => {
         logOut();
@@ -57,7 +59,7 @@ const Navbar = () => {
         >
             <button className="flex items-center text-2xl rounded-2xl hover:text-3xl hover:duration-700 py-2">
                 <IoCart></IoCart>
-                <div className="badge bg-transparent text-white border-none px-0">+0</div>
+                <div className="badge bg-transparent text-yellow-400 border-none px-0">+{cart.length}</div>
             </button>
         </NavLink>
 
