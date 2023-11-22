@@ -8,7 +8,7 @@ import { TiThMenu } from "react-icons/ti";
 import { FaShoppingBag } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
-const Dashboard = () => {
+const AdminDashboard = () => {
     return (
         <div className="flex">
             <div className="py-10 w-[20%] min-h-full bg-[#D1A054]">
@@ -55,11 +55,11 @@ const Dashboard = () => {
                     </ul>
                 </div>
             </div>
-            <div className="pr-10 flex-1 w-full">
+            <div className="pr-10 flex-1">
                 <Outlet></Outlet>
             </div>
         </div>
     );
 };
 
-export default Dashboard;
+export default AdminDashboard;
