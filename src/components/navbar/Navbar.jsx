@@ -55,7 +55,7 @@ const Navbar = () => {
             Our Menu
         </NavLink>
         <NavLink
-            to="/dashboard/dash-cart"
+            to="/user-dashboard/user-cart"
         >
             <button className="flex items-center text-2xl rounded-2xl hover:text-3xl hover:duration-700 py-2">
                 <IoCart></IoCart>

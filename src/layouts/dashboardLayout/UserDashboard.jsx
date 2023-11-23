@@ -13,7 +13,7 @@ import { IoMdMail } from "react-icons/io";
 const UserDashboard = () => {
     return (
         <div className="flex">
-            <div className="py-10 w-[20%] min-h-full bg-[#D1A054]">
+            <div className="py-10 w-[20%] min-h-screen bg-[#D1A054]">
                 <div className="flex flex-col text-center text-black">
                     <h2 className="text-xl md:text-3xl font-cinzel-font font-black">Bistro Boss</h2 >
                     <h2 className="text-sm md:text-xl font-cinzel-font tracking-widest font-bold">Restaurant</h2 >
@@ -24,19 +24,19 @@ const UserDashboard = () => {
                             <NavLink to="user-dashboard/"><IoHomeSharp className=" text-2xl"></IoHomeSharp>User Home</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="user-dashboard/user-reservation"><PiAddressBookFill className=" text-2xl"></PiAddressBookFill>Reservation</NavLink>
+                            <NavLink to="user-reservation"><PiAddressBookFill className=" text-2xl"></PiAddressBookFill>Reservation</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="user-dashboard/user-payment-history"><IoIosWallet className=" text-2xl"></IoIosWallet>Payment History</NavLink>
+                            <NavLink to="user-payment-history"><IoIosWallet className=" text-2xl"></IoIosWallet>Payment History</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="user-dashboard/user-cart"><FaCartShopping className=" text-2xl"></FaCartShopping>My Cart</NavLink>
+                            <NavLink to="user-cart"><FaCartShopping className=" text-2xl"></FaCartShopping>My Cart</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="user-dashboard/user-add-review"><TbStarsFilled className=" text-2xl"></TbStarsFilled>Add Review</NavLink>
+                            <NavLink to="user-add-review"><TbStarsFilled className=" text-2xl"></TbStarsFilled>Add Review</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="user-dashboard/user-booking"><FaCalendarAlt className=" text-2xl"></FaCalendarAlt>My Booking</NavLink>
+                            <NavLink to="user-booking"><FaCalendarAlt className=" text-2xl"></FaCalendarAlt>My Booking</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -60,7 +60,7 @@ const UserDashboard = () => {
                     </ul>
                 </div>
             </div>
-            <div className="pr-10 flex-1 bg-[#F6F6F6]">
+            <div className="px-10 flex-1 bg-[#F6F6F6]">
                 <Outlet></Outlet>
             </div>
         </div>

@@ -57,23 +57,23 @@ import UserBooking from "../../pages/userBooking/UserBooking";
           element:<UserHome></UserHome>,
         },
         {
-          path: 'user-dashboard/user-cart',
+          path: 'user-cart',
           element: <UserCart></UserCart>,
         },
         {
-          path: 'user-dashboard/user-reservation',
+          path: 'user-reservation',
           element: <UserReservation></UserReservation>,
         },
         {
-          path: 'user-dashboard/user-payment-history',
+          path: 'user-payment-history',
           element: <UserPayments></UserPayments>,
         },
         {
-          path: 'user-dashboard/user-add-review',
+          path: 'user-add-review',
           element: <UserAddReview></UserAddReview>,
         },
         {
-          path: 'user-dashboard/user-booking',
+          path: 'user-booking',
           element: <UserBooking></UserBooking>,
         },
       ]
