@@ -60,7 +60,7 @@ const UserDashboard = () => {
                     </ul>
                 </div>
             </div>
-            <div className="pr-10 flex-1">
+            <div className="pr-10 flex-1 bg-[#F6F6F6]">
                 <Outlet></Outlet>
             </div>
         </div>
