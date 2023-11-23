@@ -19,19 +19,19 @@ const AdminDashboard = () => {
                 <div className="mt-10 pl-4 text-black">
                     <ul className="menu font-cinzel-font">
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><IoHomeSharp className=" text-2xl"></IoHomeSharp>Admin Home</NavLink>
+                            <NavLink to="admin-dashboard/"><IoHomeSharp className=" text-2xl"></IoHomeSharp>Admin Home</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><TbToolsKitchen2 className=" text-2xl"></TbToolsKitchen2>Add Items</NavLink>
+                            <NavLink to="/admin-dashboard/admin-add-items"><TbToolsKitchen2 className=" text-2xl"></TbToolsKitchen2>Add Items</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><MdStorage className=" text-2xl"></MdStorage>Manage Items</NavLink>
+                            <NavLink to="/admin-dashboard/admin-manage-items"><MdStorage className=" text-2xl"></MdStorage>Manage Items</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><FaBook className=" text-2xl"></FaBook>Manage Bookings</NavLink>
+                            <NavLink to="/admin-dashboard/admin-manage-booking"><FaBook className=" text-2xl"></FaBook>Manage Bookings</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><BsPeopleFill className=" text-2xl"></BsPeopleFill>All Users</NavLink>
+                            <NavLink to="/admin-dashboard/admin-all-users"><BsPeopleFill className=" text-2xl"></BsPeopleFill>All Users</NavLink>
                         </li>
                     </ul>
                 </div>
@@ -41,16 +41,16 @@ const AdminDashboard = () => {
                 <div className="pl-4 text-black">
                     <ul className="menu font-cinzel-font">
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><IoHomeSharp className=" text-2xl"></IoHomeSharp>Home</NavLink>
+                            <NavLink to="/"><IoHomeSharp className=" text-2xl"></IoHomeSharp>Home</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><TiThMenu className=" text-2xl"></TiThMenu>Menu</NavLink>
+                            <NavLink to="/our-menu"><TiThMenu className=" text-2xl"></TiThMenu>Menu</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><FaShoppingBag className=" text-2xl"></FaShoppingBag>Shop</NavLink>
+                            <NavLink to="/our-shop"><FaShoppingBag className=" text-2xl"></FaShoppingBag>Shop</NavLink>
                         </li>
                         <li className="py-1 font-semibold tracking-wider" >
-                            <NavLink to="/dashboard/cart"><IoMdMail className=" text-2xl"></IoMdMail>Contacts</NavLink>
+                            <NavLink to="/contact"><IoMdMail className=" text-2xl"></IoMdMail>Contacts</NavLink>
                         </li>
                     </ul>
                 </div>

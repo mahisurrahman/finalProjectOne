@@ -31,7 +31,7 @@ const Navbar = () => {
             Contact Us
         </NavLink>
         <NavLink
-            to="/dashboard"
+            to="/admin-or-user"
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
             }
